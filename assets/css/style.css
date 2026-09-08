@@ -326,6 +326,38 @@ a:hover {
     width: 100%;
 }
 
+.labs-card {
+    align-items: center;
+    border: 1px solid #343a49;
+    color: #d8dce5;
+    background: #0e1118;
+}
+
+.labs-card img {
+    width: 30%;
+    object-fit: contain;
+    image-rendering: pixelated;
+}
+
+.card-copy {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2rem;
+}
+
+.card-copy strong {
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.card-copy span {
+    color: #8f97a8;
+    font-size: 0.78rem;
+}
+
 .overlay {
     /* Must obstruct everything else until the animation is done */
     position: fixed;
