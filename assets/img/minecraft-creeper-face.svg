@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="346 256 100 100" role="img" aria-labelledby="creeper-title">
+  <title id="creeper-title">Creeper face</title>
+  <g>
+    <rect x="354.75" y="264.75" width="27.5" height="27.5"/>
+    <polygon points="382.25,292.25 382.25,306 368.5,306 368.5,347.25 382.25,347.25 382.25,333.5 409.75,333.5 409.75,347.25 423.5,347.25 423.5,306 409.75,306 409.75,292.25"/>
+    <rect x="409.75" y="264.75" width="27.5" height="27.5"/>
+  </g>
+</svg>
