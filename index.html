@@ -13,6 +13,10 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/inter-ui/3.19.3/inter.css">
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <!-- tsParticles engine -->
+  <script src="https://cdn.jsdelivr.net/npm/@tsparticles/engine@4/tsparticles.engine.min.js"></script>
+  <!-- Slim bundle (exposes loadSlim globally) -->
+  <script src="https://cdn.jsdelivr.net/npm/@tsparticles/slim@4/tsparticles.slim.bundle.min.js"></script>
 </head>
 
 <body>
@@ -38,6 +42,7 @@
     </defs>
   </svg>
   <div class="filter"></div>
+  <div id="tsparticles"></div>
   <div class="overlay"></div>
   <nav class="tabs" aria-label="Page sections">
     <button class="tab is-active" id="tab-me" type="button" role="tab" aria-selected="true" aria-controls="panel-me"
@@ -254,6 +259,25 @@
       tabs[nextIndex].focus();
     });
   });
+
+
+
+  (async () => {
+    // loadSlim is available globally from the CDN bundle
+    await loadSlim(tsParticles);
+
+    await tsParticles.load({
+      id: "tsparticles",
+      options: {
+        particles: {
+          number: { value: 80 },
+          links: { enable: true, distance: 150 },
+          move: { enable: true, speed: 0.4 },
+        },
+      },
+    });
+  })();
+
 </script>
 
 </html>

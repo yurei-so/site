@@ -20,3 +20,9 @@ Microsoft. This site is not an official Minecraft product and is not approved
 by or associated with Mojang Studios or Microsoft.
 
 No endorsement by the Noun Project or the icon's creator is implied.
+
+## tsparticles
+
+- Source: [repo source](https://github.com/tsparticles/tsparticles)
+- Main [page](https://particles.js.org/)
+- License: [MIS License](https://github.com/tsparticles/tsparticles?tab=MIT-1-ov-file)

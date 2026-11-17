@@ -1,5 +1,5 @@
 :root {
-    background: linear-gradient(-45deg, #ff0000, #dd2020, #1d36c2, #002fff);
+    background: linear-gradient(-35deg, #e96f6f, #35052d, #220535, #12011d);
     background-size: 400% 400%;
     animation: gradient 8s ease infinite;
     color: #e5e5ec;
@@ -34,6 +34,7 @@ body {
 
 h1 {
     position: absolute;
+    z-index: 1;
     font-size: 1.5rem;
     font-weight: bold;
     margin: 0;
@@ -53,14 +54,25 @@ a:hover {
     width: 100%;
     height: 100%;
     position: fixed;
+    z-index: 1;
+    pointer-events: none;
     background-image: radial-gradient(circle, rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 1) 55%);
     background-position: 0 0, 50px 50px;
     background-size: 1px 3px;
     box-shadow: inset 0 0 100px black;
 }
 
+/* Decorative particles sit below the scan filter and never intercept clicks. */
+#tsparticles {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
 .content {
     position: absolute;
+    z-index: 4;
     left: 10%;
     top: 10%;
     width: 80%;
@@ -72,7 +84,7 @@ a:hover {
 
 .tabs {
     position: absolute;
-    z-index: 1;
+    z-index: 2;
     top: 0;
     left: 10%;
     right: 10%;
@@ -122,6 +134,7 @@ a:hover {
 
 .footer {
     position: absolute;
+    z-index: 1;
     left: 10%;
     right: 10%;
     bottom: 0;
@@ -180,23 +193,51 @@ a:hover {
 }
 
 @keyframes fly-in-from-right {
-    from { opacity: 0; transform: translateX(35%) scale(0.94); }
-    to { opacity: 1; transform: translateX(0) scale(1); }
+    from {
+        opacity: 0;
+        transform: translateX(35%) scale(0.94);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
 }
 
 @keyframes fly-in-from-left {
-    from { opacity: 0; transform: translateX(-35%) scale(0.94); }
-    to { opacity: 1; transform: translateX(0) scale(1); }
+    from {
+        opacity: 0;
+        transform: translateX(-35%) scale(0.94);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
 }
 
 @keyframes fly-out-to-left {
-    from { opacity: 1; transform: translateX(0) scale(1); }
-    to { opacity: 0; transform: translateX(-35%) scale(0.94); }
+    from {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(-35%) scale(0.94);
+    }
 }
 
 @keyframes fly-out-to-right {
-    from { opacity: 1; transform: translateX(0) scale(1); }
-    to { opacity: 0; transform: translateX(35%) scale(0.94); }
+    from {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(35%) scale(0.94);
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -226,6 +267,10 @@ a:hover {
 
 .js .card {
     opacity: 0;
+}
+
+.js body:not(.page-ready) .content .card {
+    pointer-events: none;
 }
 
 .js .page-ready .card {
@@ -361,6 +406,7 @@ a:hover {
 .overlay {
     /* Must obstruct everything else until the animation is done */
     position: fixed;
+    z-index: 3;
     width: 100%;
     height: 100%;
     display: flex;
@@ -369,4 +415,8 @@ a:hover {
     background-color: #000000;
     border-radius: 10px;
     transition: all 5s;
+}
+
+body.page-ready>.overlay {
+    pointer-events: none;
 }
